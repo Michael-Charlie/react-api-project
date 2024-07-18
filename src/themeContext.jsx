@@ -6,7 +6,7 @@ import workouts from "./components/workouts";
 export const ThemeContext = React.createContext();
 
 export default function ThemeContextProvider(props) {
-  const [allExercises, setAllExercises] = useState([]);
+  const [allExercises, setAllExercises] = useState(workouts);
 
   const [exerciseList, setExerciseList] = useState([]);
 
@@ -30,9 +30,9 @@ export default function ThemeContextProvider(props) {
       .then((res) => setAllExercises(res.data))
       .catch((err) => console.log(err));
   };
-  useEffect(() => {
-    getExerciseList();
-  }, []);
+  // useEffect(() => {
+  //   getExerciseList();
+  // }, []);
 
   const displayExercises = (showExercise) => {
     let arr = [...allExercises];

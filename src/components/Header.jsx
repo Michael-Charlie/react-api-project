@@ -15,6 +15,11 @@ export default function Header(props) {
     exercise,
   } = useContext(ThemeContext);
 
+  function addWorkout(e) {
+    e.preventDefault()
+    displayExercises(exercise)
+  }
+
   return (
     <div>
       <div>
@@ -25,7 +30,7 @@ export default function Header(props) {
         </h2>
       </div>
       <div className="header">
-        <form className="header--routine">
+        <form className="header--routine" onSubmit={addWorkout}>
           <h1>Add new routine</h1>
 
           <select
